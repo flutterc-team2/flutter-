@@ -1,7 +1,7 @@
+import 'package:app1/classes/responsive_ui.dart';
+import 'package:app1/widgets/onboarding_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:task_11/classes/responsive_ui.dart';
-import 'package:task_11/widgets/onboarding_widget.dart';
 
 class Pageview extends StatefulWidget {
   const Pageview({super.key});
@@ -57,7 +57,9 @@ class _PageviewState extends State<Pageview> {
                 if (index == 2) {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => SignIn()), // add SignIn Screen here
+                    MaterialPageRoute(
+                      builder: (context) => SignIn(),// add SignIn Screen here
+                    ), 
                   );
                 } else {
                   controller.nextPage(

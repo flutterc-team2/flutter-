@@ -1,6 +1,6 @@
+import 'package:app1/classes/responsive_ui.dart';
+import 'package:app1/widgets/pageview.dart';
 import 'package:flutter/material.dart';
-import 'package:task_11/classes/responsive_ui.dart';
-import 'package:task_11/widgets/pageview.dart';
 
 void main() {
   runApp(MyApp());

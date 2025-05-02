@@ -18,17 +18,18 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     ResponsiveUi.initial(context: context);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       home: Scaffold(
         backgroundColor: Colors.white,
         body: Column(
           children: [
             SizedBox(height: ResponsiveUi.height * 0.1),
 
-      //       Expanded(child: Pageview()),
-      //     ],
-      //   ),
-      // ),
-      debugShowCheckedModeBanner: false,
+            Expanded(child: Pageview()),
+          ],
+        ),
+      ),
     );
   }
 }

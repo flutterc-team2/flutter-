@@ -1,6 +1,5 @@
 import 'package:app1/classes/responsive_ui.dart';
 import 'package:app1/screens/Login_screen.dart';
-import 'package:app1/screens/login_screen_2.dart';
 import 'package:app1/widgets/onboarding_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';

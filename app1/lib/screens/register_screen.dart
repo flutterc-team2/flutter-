@@ -10,9 +10,9 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  @override
   bool isObscured = true;
   Icon icos = Icon(Icons.remove_red_eye);
+  @override
   Widget build(BuildContext context) {
     ResponsiveUi.initial(context: context);
     return Scaffold(
@@ -137,7 +137,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     obscureText: isObscured,
                     decoration: InputDecoration(
                       hintText: "Strong Password",
-                      suffixIcon: Container(
+                      suffixIcon: SizedBox(
                         width: 80, // Prevent layout issues
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,

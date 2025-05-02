@@ -1,6 +1,7 @@
 import 'package:app1/classes/responsive_ui.dart';
 import 'package:app1/screens/Login_screen.dart';
 import 'package:app1/screens/splash_screen.dart';
+import 'package:app1/screens/transfer_bound.dart';
 import 'package:app1/widgets/pageview_shoe.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     ResponsiveUi.initial(context: context);
-    return MaterialApp(debugShowCheckedModeBanner: false, home: LoginScreen());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: TransferBound(),
+    );
   }
 }

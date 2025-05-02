@@ -1,4 +1,5 @@
 import 'package:app1/classes/responsive_ui.dart';
+import 'package:app1/screens/Login_screen.dart';
 import 'package:app1/screens/login_screen_2.dart';
 import 'package:app1/widgets/onboarding_widget.dart';
 import 'package:flutter/material.dart';
@@ -32,20 +33,20 @@ class _PageviewState extends State<Pageview> {
           children: [
             OnboardingWidget(
               image: "assets/onboarding_1.png",
-              title: "Explore the\nworld easily",
-              subtitle: "To your desire",
+              title: "",
+              subtitle: "",
             ),
 
             OnboardingWidget(
               image: "assets/onboarding_2.png",
-              title: "Reach the\nunknown spot",
-              subtitle: "To your destination",
+              title: "",
+              subtitle: "",
             ),
 
             OnboardingWidget(
               image: "assets/onboarding_3.png",
-              title: "Make connects\nwith explora",
-              subtitle: "To your dream trip",
+              title: "",
+              subtitle: "",
             ),
           ],
         ),
@@ -60,7 +61,7 @@ class _PageviewState extends State<Pageview> {
                     context,
                     MaterialPageRoute(
                       builder:
-                          (context) => LoginScreen2(), // add SignIn Screen here
+                          (context) => LoginScreen(), // add SignIn Screen here
                     ),
                   );
                 } else {

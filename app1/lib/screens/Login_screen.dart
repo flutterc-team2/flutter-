@@ -1,4 +1,5 @@
 import 'package:app1/classes/responsive_ui.dart';
+import 'package:app1/screens/home.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -33,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 20),
               Image.asset(
-                'app1/assets/login (1).gif',
+                'assets/logo (2).png',
                 height: ResponsiveUi.height / 2,
               ),
               const SizedBox(height: 20),
@@ -104,7 +105,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     vertical: 15,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => Home()),
+                  );
+                },
                 child: const Text(
                   'تسجيل الدخول',
                   style: TextStyle(

@@ -29,10 +29,13 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset("assets/onboarding_3.png", width: 150, height: 150), // add pathe the image
+            Image.asset(
+              "assets/login (1).gif",
+              width: 150,
+              height: 150,
+            ), // add pathe the image
             const SizedBox(height: 20),
-          
-            
+
             const SizedBox(height: 20),
             const CircularProgressIndicator(),
           ],

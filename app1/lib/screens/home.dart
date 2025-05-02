@@ -1,4 +1,7 @@
 import 'package:app1/classes/responsive_ui.dart';
+import 'package:app1/screens/saving.dart';
+import 'package:app1/screens/show_installments.dart';
+import 'package:app1/screens/transfer_bound.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -22,7 +25,12 @@ class _HomeState extends State<Home> {
         body: Column(
           children: [
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => TransferBound()),
+                );
+              },
               child: Container(
                 margin: const EdgeInsets.symmetric(vertical: 8),
                 padding: const EdgeInsets.all(12),
@@ -33,14 +41,16 @@ class _HomeState extends State<Home> {
                 child: Row(
                   children: [
                     Text("'حساب تحويل العملات إلى الدولار"),
-                    Image.asset(""),
+                    Image.asset("assets/l8.png"),
                   ],
                 ),
               ),
             ),
             SizedBox(height: 10),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(context, (context) => organize());
+              },
 
               ///
               child: Container(
@@ -51,12 +61,17 @@ class _HomeState extends State<Home> {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
-                  children: [Text("' الأقساط و مواعيدها"), Image.asset("")],
+                  children: [
+                    Text("' الأقساط و مواعيدها"),
+                    Image.asset("assets/l44.png"),
+                  ],
                 ),
               ),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ShowInstallments()));
+              },
               child: Container(
                 margin: const EdgeInsets.symmetric(vertical: 8),
                 padding: const EdgeInsets.all(12),
@@ -82,7 +97,10 @@ class _HomeState extends State<Home> {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
-                  children: [Text("'تعديل البيانات"), Image.asset("")],
+                  children: [
+                    Text("'تعديل البيانات"),
+                    Image.asset("assets/l6.png"),
+                  ],
                 ),
               ),
             ),

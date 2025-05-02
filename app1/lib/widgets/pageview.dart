@@ -55,12 +55,12 @@ class _PageviewState extends State<Pageview> {
             onPressed: () {
               setState(() {
                 if (index == 2) {
-                 Navigator.pushReplacement(
-                   context,
-                   MaterialPageRoute(
-                     builder: (context) => SignIn(),// add SignIn Screen here
-                   ), 
-                 );
+                //  Navigator.pushReplacement(
+                //    context,
+                //    MaterialPageRoute(
+                //      builder: (context) => SignIn(),// add SignIn Screen here
+                //    ), 
+                //  );
                 } else {
                   controller.nextPage(
                     duration: Duration(milliseconds: 500),

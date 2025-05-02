@@ -1,4 +1,5 @@
 import 'package:app1/classes/responsive_ui.dart';
+import 'package:app1/screens/login_screen_2.dart';
 import 'package:app1/widgets/onboarding_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -55,12 +56,13 @@ class _PageviewState extends State<Pageview> {
             onPressed: () {
               setState(() {
                 if (index == 2) {
-                //  Navigator.pushReplacement(
-                //    context,
-                //    MaterialPageRoute(
-                //      builder: (context) => SignIn(),// add SignIn Screen here
-                //    ), 
-                //  );
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) => LoginScreen2(), // add SignIn Screen here
+                    ),
+                  );
                 } else {
                   controller.nextPage(
                     duration: Duration(milliseconds: 500),

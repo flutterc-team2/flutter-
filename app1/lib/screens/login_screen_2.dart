@@ -1,5 +1,7 @@
-import 'dart:developer';
 import 'package:app1/classes/responsive_ui.dart';
+import 'package:app1/databaase/sqflite_data.dart';
+import 'package:app1/screens/home.dart';
+import 'package:app1/screens/register_screen_2.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen2 extends StatefulWidget {
@@ -10,6 +12,22 @@ class LoginScreen2 extends StatefulWidget {
 }
 
 class _LoginScreen2State extends State<LoginScreen2> {
+  List email = [];
+  Mydb mydb = Mydb();
+
+  Future<void> readData() async {
+    email.clear();
+    List<Map> response = await mydb.readData("SELECT * FROM users");
+    email.addAll(response);
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    readData();
+    super.initState();
+  }
+
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   bool obscurePassword = true;
@@ -29,6 +47,22 @@ class _LoginScreen2State extends State<LoginScreen2> {
         r'^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+$',
       ).hasMatch(value);
     });
+  }
+
+  void showCustomSnackBar(
+    BuildContext context,
+    String message, {
+    bool isError = false,
+  }) {
+    final snackBar = SnackBar(
+      content: Text(message),
+      backgroundColor: isError ? Colors.red : Colors.green,
+      behavior: SnackBarBehavior.floating,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      duration: const Duration(seconds: 3),
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   @override
@@ -205,9 +239,36 @@ class _LoginScreen2State extends State<LoginScreen2> {
                   height: ResponsiveUi.height * 0.065,
                   child: ElevatedButton(
                     onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        log("message");
+                      bool isAllowed = false;
+                      for (int i = 0; i < email.length; i++) {
+                        if (emailController.text.trim().toLowerCase() ==
+                                email[i]['email']
+                                    .toString()
+                                    .trim()
+                                    .toLowerCase() &&
+                            passwordController.text.trim() ==
+                                email[i]['password'].toString().trim()) {
+                          isAllowed = true;
+                          break;
+                        }
                       }
+
+                      if (isAllowed) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Home()),
+                        );
+                        passwordController.clear();
+                        emailController.clear();
+                      } else {
+                        showCustomSnackBar(
+                          context,
+                          "Email or password incorrect",
+                          isError: true,
+                        );
+                      }
+
+                      setState(() {});
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,
@@ -236,7 +297,14 @@ class _LoginScreen2State extends State<LoginScreen2> {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => RegisterScreen2(),
+                          ),
+                        );
+                      },
                       child: Text(
                         'Register now',
                         style: TextStyle(

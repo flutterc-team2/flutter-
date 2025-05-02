@@ -1,4 +1,6 @@
 import 'package:app1/classes/responsive_ui.dart';
+import 'package:app1/databaase/sqflite_data.dart';
+import 'package:app1/screens/login_screen_2.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreen2 extends StatefulWidget {
@@ -9,8 +11,32 @@ class RegisterScreen2 extends StatefulWidget {
 }
 
 class _RegisterScreen2State extends State<RegisterScreen2> {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  List<List> email = [];
+  Mydb mydb = Mydb();
+  Future<void> readData() async {
+    List<Map> response = await mydb.readData("SELECT * FROM users");
+
+    email.addAll(response.map((e) => [e['email'], e['password']]));
+    if (!mounted) return;
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    readData();
+    super.initState();
+  }
+
+  void addemail(String mail, String pass) async {
+    await mydb.insertdata("INSERT INTO users (email, password) VALUES (?, ?)", [
+      mail,
+      pass,
+    ]);
+    await readData(); // reload from DB
+  }
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   bool obscurePassword = true;
   bool isEmailValid = true;
   bool isPasswordValid = true;
@@ -114,6 +140,7 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
               SizedBox(
                 width: ResponsiveUi.width * 0.9,
                 child: TextField(
+                  controller: emailController,
                   onChanged: validateEmail,
                   style: TextStyle(fontSize: ResponsiveUi.width * 0.05),
                   decoration: InputDecoration(
@@ -246,8 +273,11 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
                     },
                   ),
                   Text(
-                    'By checking the box you agree to our Terms and Conditions.',
-                    style: TextStyle(fontSize: ResponsiveUi.width * 0.023),
+                    'By checking the box you agree All Conditions.',
+                    style: TextStyle(
+                      fontSize: ResponsiveUi.width * 0.023,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   SizedBox(width: ResponsiveUi.width * 0.13),
                 ],
@@ -257,7 +287,19 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
                 width: ResponsiveUi.width * 0.9,
                 height: ResponsiveUi.height * 0.065,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  // save accountn data
+                  onPressed: () {
+                    addemail(emailController.text, passwordController.text);
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginScreen2()),
+
+                      // ignore: avoid_print
+                    );
+                    setState(() {
+                      print(email);
+                    });
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                     shape: RoundedRectangleBorder(
@@ -265,7 +307,7 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
                     ),
                   ),
                   child: Text(
-                    'Next',
+                    'Save account',
                     style: TextStyle(
                       fontSize: ResponsiveUi.width * 0.05,
                       color: Colors.white,
@@ -285,7 +327,16 @@ class _RegisterScreen2State extends State<RegisterScreen2> {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginScreen2(),
+                          ),
+                        );
+                      });
+                    },
                     child: Text(
                       'Log In',
                       style: TextStyle(

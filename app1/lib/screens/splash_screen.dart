@@ -1,38 +1,5 @@
-// import 'package:flutter/material.dart';
-// import 'package:quizeap/start_screen.dart';
-
-// class Splashscren extends StatefulWidget {
-//   const Splashscren({super.key});
-
-//   @override
-//   State<Splashscren> createState() => _SplashscrenState();
-// }
-
-// class _SplashscrenState extends State<Splashscren> {
-//   @override
-//   void initState() {
-//     Future.delayed(Duration(seconds: 3), () {
-//       Navigator.pushReplacement(
-//           context, MaterialPageRoute(builder: (context) => StartScreen()));
-//     });
-//     // TODO: implement initState
-//     super.initState();
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Center(
-//         child: Container(
-//           child: Image.asset("assets/images/1.jpg"),
-//         ),
-//       ),
-//     );
-//   }
-// }
-// splash_screen.dart
+import 'package:app1/widgets/pageview_shoe.dart';
 import 'package:flutter/material.dart';
-import 'package:quizeap/start_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -48,7 +15,9 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 5), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const StartScreen()),
+        MaterialPageRoute(
+          builder: (context) => PageviewShow(),
+        ), // onboarding sscreen
       );
     });
   }
@@ -60,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset("", width: 150, height: 150),  // add pathe the image 
+            Image.asset("", width: 150, height: 150), // add pathe the image
             const SizedBox(height: 20),
             const Text(
               "Welcome to the Quiz App!",

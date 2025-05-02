@@ -1,6 +1,5 @@
 import 'package:app1/classes/responsive_ui.dart';
-import 'package:app1/screens/splash_screen.dart';
-import 'package:app1/widgets/pageview_shoe.dart';
+import 'package:app1/screens/show_installments.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,6 +17,6 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     ResponsiveUi.initial(context: context);
-    return MaterialApp(debugShowCheckedModeBanner: false, home: SplashScreen());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: ShowInstallments());
   }
 }

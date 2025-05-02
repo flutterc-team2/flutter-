@@ -1,5 +1,4 @@
 import 'package:app1/classes/responsive_ui.dart';
-import 'package:app1/screens/register_screen.dart';
 import 'package:app1/widgets/pageview.dart';
 import 'package:flutter/material.dart';
 
@@ -19,18 +18,18 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     ResponsiveUi.initial(context: context);
     return MaterialApp(
-      home: RegisterScreen(),
-      // home: Scaffold(
-      //   backgroundColor: Colors.white,
-      //   body: Column(
-      //     children: [
-      //       SizedBox(height: ResponsiveUi.height * 0.1),
-
-      //       Expanded(child: Pageview()),
-      //     ],
-      //   ),
-      // ),
       debugShowCheckedModeBanner: false,
+
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        body: Column(
+          children: [
+            SizedBox(height: ResponsiveUi.height * 0.1),
+
+            Expanded(child: Pageview()),
+          ],
+        ),
+      ),
     );
   }
 }

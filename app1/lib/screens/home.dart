@@ -49,7 +49,10 @@ class _HomeState extends State<Home> {
             SizedBox(height: 10),
             InkWell(
               onTap: () {
-                Navigator.pushReplacement(context, (context) => organize());
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => organize()),
+                );
               },
 
               ///
@@ -70,7 +73,10 @@ class _HomeState extends State<Home> {
             ),
             InkWell(
               onTap: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ShowInstallments()));
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => ShowInstallments()),
+                );
               },
               child: Container(
                 margin: const EdgeInsets.symmetric(vertical: 8),

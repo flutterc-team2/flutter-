@@ -1,5 +1,6 @@
 import 'package:app1/classes/responsive_ui.dart';
 import 'package:app1/screens/splash_screen.dart';
+import 'package:app1/widgets/pageview_shoe.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset("", width: 150, height: 150), // add pathe the image
+            Image.asset("assets/onboarding_3.png", width: 150, height: 150), // add pathe the image
             const SizedBox(height: 20),
             const Text(
               "Welcome to the Quiz App!",

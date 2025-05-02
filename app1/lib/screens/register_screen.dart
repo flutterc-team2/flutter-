@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Column(
+        children: [
+          Image.asset("app1/assets/login_screen.png", fit: BoxFit.fill),
+          Text("data"),
+          Padding(
+            padding: EdgeInsets.all(10),
+            child: TextFormField(
+              decoration: InputDecoration(
+                label: Text("fillname"),
+                suffixIcon: Icon(Icons.person),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

@@ -1,5 +1,5 @@
 import 'package:app1/classes/responsive_ui.dart';
-import 'package:app1/screens/login_screen_2.dart';
+import 'package:app1/screens/register_screen_2.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home: LoginScreen2(),
+      home: RegisterScreen2(),
       // home: Scaffold(
       //   backgroundColor: Colors.white,
       //   body: Column(

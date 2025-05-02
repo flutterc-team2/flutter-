@@ -1,3 +1,4 @@
+import 'package:app1/classes/responsive_ui.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -10,6 +11,84 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.red);
+    return Directionality(
+      // Ensure right-to-left layout
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('ميزان'),
+          backgroundColor: kPrimaryColor3,
+        ),
+        body: Column(
+          children: [
+            InkWell(
+              onTap: () {},
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.green[300],
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  children: [
+                    Text("'حساب تحويل العملات إلى الدولار"),
+                    Image.asset(""),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            InkWell(
+              onTap: () {},
+
+              ///
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.green[300],
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  children: [Text("' الأقساط و مواعيدها"), Image.asset("")],
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {},
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.green[300],
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  children: [
+                    Text("المصروفات بالنسبة لدخلك الشهرير"),
+                    Image.asset(""),
+                  ],
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {},
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.green[300],
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  children: [Text("'تعديل البيانات"), Image.asset("")],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
